@@ -4,7 +4,7 @@ import DropFileInput from "./Dropbox";
 
 export default function Inpurdrop() {
   return (
-    <Inputcontainer data-aos="fade-right">
+    <Inputcontainer>
       <h5>Input Image</h5>
       <DropFileInput />
     </Inputcontainer>

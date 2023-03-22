@@ -87,8 +87,7 @@ export default function Example() {
   return (
     <>
       <h1>Example Images to Test</h1>
-      <Examplecontainer data-aos="fade-up"
-     data-aos-anchor-placement="top-bottom">
+      <Examplecontainer>
         <Exampleimages setoutput={getoutput} eximg={exampleimage1} />
         <Exampleimages setoutput={getoutput} eximg={exampleimage2} />
         <Exampleimages setoutput={getoutput} eximg={exampleimage3} />

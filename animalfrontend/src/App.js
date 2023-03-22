@@ -5,15 +5,7 @@ import Outputdrop from './components/Outputdrop';
 import { useState, createContext } from "react";
 import Example from './components/Example';
 import Classes from './components/Classes';
-import AOS from 'aos';
-import 'aos/dist/aos.css'; // You can also use <link> for styles
-// ..
-AOS.init({
-  duration: 1500, // values from 0 to 3000, with step 50ms
-  easing: 'ease', // default easing for AOS animations
-  anchorPlacement: 'top-bottom', // defines which position of the element regarding to window should trigger the animation
 
-});
 export const UserContext = createContext()
 function App() {
   const [selectedImage, setSelectedImage] = useState(false);

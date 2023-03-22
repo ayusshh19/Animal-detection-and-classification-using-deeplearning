@@ -8,7 +8,7 @@ import outputimg from "../assets/output.png";
 export default function Outputdrop() {
   const { outputurl, output, setoutput } = useContext(UserContext);
   return (
-    <Outputcontainer data-aos="fade-left">
+    <Outputcontainer>
       <h5>Output Image</h5>
       {output ? (
         <Imagecontainer image={outputimg} />

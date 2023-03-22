@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 export default function Imagecontainer(props) {
   return (
-    <Imagedrop>
+    <Imagedrop data-aos="zoom-in">
         <img src={props.image} alt="" srcset="" />
     </Imagedrop>
   )

@@ -9,13 +9,17 @@ export default function Imagecontainer(props) {
   )
 }
 const Imagedrop=styled.div`
-width: 90%;
-height: 90%;
+width: 60%;
+height: 60%;
 display: flex;
 justify-content: center;
 align-items: center;
 img{
     width: 100%;
     height: 100%;
+}
+@media (max-width:990px) {
+  width: 80%;
+  height: 80%;
 }
 `

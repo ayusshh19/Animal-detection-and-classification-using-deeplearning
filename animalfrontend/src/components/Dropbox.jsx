@@ -7,7 +7,7 @@ import uploadImg from "../assets/cloud-upload-regular-240.png";
 import Imagecontainer from "./Imagecontainer";
 import axios from "axios";
 const DropFileInput = (props) => {
-  const { selectedImage, setSelectedImage, imageurl, setimageurl,setoutputurl } =
+  const { selectedImage, setSelectedImage, imageurl, setimageurl,setoutputurl ,setoutput} =
     useContext(UserContext);
   const wrapperRef = useRef(null);
 
@@ -49,6 +49,7 @@ const DropFileInput = (props) => {
   const onDrop = () => wrapperRef.current.classList.remove("dragover");
   const onFileDrop = (e) => {
     if (e.target.files && e.target.files.length > 0) {
+      setoutput(false)
       setSelectedImage(e.target.files[0]);
       setimageurl(URL.createObjectURL(e.target.files[0]));
       const formData = new FormData();

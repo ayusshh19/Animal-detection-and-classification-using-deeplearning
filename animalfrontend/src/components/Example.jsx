@@ -7,7 +7,6 @@ import exampleimage3 from "../assets/image3.jpg";
 import exampleimage4 from "../assets/image4.jpg";
 import exampleimage5 from "../assets/image5.jpg";
 import exampleimage6 from "../assets/image6.jpg";
-import { useRef, useState } from "react";
 import { UserContext } from "../App";
 import "./Dropfile.css";
 import { useContext } from "react";
@@ -15,9 +14,9 @@ import axios from "axios";
 
 export default function Example() {
   const {
-    selectedImage,
+    // selectedImage,
     setSelectedImage,
-    imageurl,
+    // imageurl,
     setimageurl,
     setoutputurl,
     setoutput,
@@ -56,14 +55,14 @@ export default function Example() {
 
     return canvas.toDataURL();
   };
-  const getoutput=async (img)=>{
+  const getoutput = async (img) => {
     setoutput(false);
     const imgBlob = await fetch(img).then((res) => res.blob());
     setoutputurl(false)
     setSelectedImage(img);
     setimageurl(img);
     const formData = new FormData();
-    formData.append("img", imgBlob,img);
+    formData.append("img", imgBlob, img);
     const postdata = async () => {
       await axios
         .post("https://predict-ebi2uybfrq-el.a.run.app/", formData)
@@ -71,12 +70,12 @@ export default function Example() {
           const image = new Image();
           image.src = img;
           image.onload = () => {
-            if(data.data){
+            if (data.data) {
               console.log(data.data)
               const visual = visualizeDetection(image, data.data);
-            setoutputurl(visual);
+              setoutputurl(visual);
             }
-            else{
+            else {
               alert('something went wrong!!')
             }
           };
@@ -86,7 +85,7 @@ export default function Example() {
   };
   return (
     <>
-      <h1>Example Images to Test</h1>
+      <h3>Example Images to Test</h3>
       <Examplecontainer>
         <Exampleimages setoutput={getoutput} eximg={exampleimage1} />
         <Exampleimages setoutput={getoutput} eximg={exampleimage2} />
@@ -103,6 +102,7 @@ const Examplecontainer = styled.div`
   width: 100%;
   height: 20vh;
   display: flex;
+  padding: 1rem;
   justify-content: space-evenly;
   align-items: center;
   @media (max-width:990px) {

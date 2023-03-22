@@ -1,13 +1,13 @@
-import React, { useRef, useState } from "react";
+import React, { useRef } from "react";
 import PropTypes from "prop-types";
 import { UserContext } from "../App";
 import "./Dropfile.css";
 import { useContext } from "react";
-import uploadImg from "../assets/cloud-upload-regular-240.png";
+import uploadImg from "../assets/upload.png";
 import Imagecontainer from "./Imagecontainer";
 import axios from "axios";
 const DropFileInput = (props) => {
-  const { selectedImage, setSelectedImage, imageurl, setimageurl,setoutputurl ,setoutput} =
+  const { selectedImage, setSelectedImage, imageurl, setimageurl, setoutputurl, setoutput } =
     useContext(UserContext);
   const wrapperRef = useRef(null);
 
@@ -20,11 +20,11 @@ const DropFileInput = (props) => {
     canvas.width = image.width;
     canvas.height = image.height;
     ctx.drawImage(image, 0, 0);
-  
+
     ctx.strokeStyle = "red";
     ctx.lineWidth = 4;
     ctx.font = "30px Arial";
-  
+
     for (let i = 0; i < boxes.length; i++) {
       const box = boxes[i];
       const x1 = box[0];
@@ -32,15 +32,15 @@ const DropFileInput = (props) => {
       const x2 = box[2];
       const y2 = box[3];
       const label = labels[i] + " " + confi[i].toFixed(2);
-  
+
       ctx.strokeRect(x1, y1, x2 - x1, y2 - y1);
-  
+
       ctx.fillStyle = "red";
       ctx.fillRect(x1 - 2, y1 - 38, ctx.measureText(label).width + 10, 40);
       ctx.fillStyle = "white";
       ctx.fillText(label, x1, y1 - 8);
     }
-  
+
     return canvas.toDataURL();
   };
 
@@ -54,21 +54,21 @@ const DropFileInput = (props) => {
       setimageurl(URL.createObjectURL(e.target.files[0]));
       const formData = new FormData();
       console.log(e.target.files[0]);
-      formData.append("img",e.target.files[0]);
+      formData.append("img", e.target.files[0]);
       for (var key of formData.entries()) {
         console.log(key[0] + ', ' + key[1].name)
-    }
+      }
       const postdata = async () => {
         await axios.post(
           "https://predict-ebi2uybfrq-el.a.run.app/",
           formData
-        ).then((data)=>{
-            const image = new Image();
-            image.src = URL.createObjectURL(e.target.files[0])
-            image.onload = () => {
-                const visual=visualizeDetection(image, data.data);
-                setoutputurl(visual)
-              };
+        ).then((data) => {
+          const image = new Image();
+          image.src = URL.createObjectURL(e.target.files[0])
+          image.onload = () => {
+            const visual = visualizeDetection(image, data.data);
+            setoutputurl(visual)
+          };
         });
       };
       postdata();
@@ -78,7 +78,7 @@ const DropFileInput = (props) => {
   return (
     <>
       {selectedImage ? (
-        <Imagecontainer image={imageurl} />
+        <Imagecontainer image={imageurl} width={'100%'} height={'100%'} />
       ) : (
         <div
           ref={wrapperRef}
@@ -88,7 +88,7 @@ const DropFileInput = (props) => {
           onDrop={onDrop}
         >
           <div className="drop-file-input__label">
-            <img src={uploadImg} alt="" />
+            <img src={uploadImg} alt="img" />
             <p>Drag & Drop your files here Max 1 Image</p>
           </div>
           <input type="file" value="" onChange={onFileDrop} multiple />

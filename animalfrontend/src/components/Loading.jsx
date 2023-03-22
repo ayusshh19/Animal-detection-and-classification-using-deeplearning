@@ -4,7 +4,7 @@ import loadinggif from "../assets/loading.gif";
 export default function Loading() {
   return (
     <Loadingcomponent>
-      <img src={loadinggif} alt="" srcset="" />
+      <img src={loadinggif} alt="" srcset="" height={'60%'} width={'60%'} />
     </Loadingcomponent>
   );
 }
@@ -15,8 +15,4 @@ const Loadingcomponent = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  img {
-    width: 100%;
-    height: 100%;
-  }
 `;

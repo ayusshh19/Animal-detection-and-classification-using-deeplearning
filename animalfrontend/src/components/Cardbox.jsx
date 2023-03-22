@@ -3,12 +3,12 @@ import styled from 'styled-components'
 
 export default function Cardbox(props) {
   return (
-    <Cardboxcontent  data-aos="zoom-in"  >
-        {props.data}
+    <Cardboxcontent data-aos="zoom-in"  >
+      {props.data}
     </Cardboxcontent>
   )
 }
-const Cardboxcontent=styled.div`
+const Cardboxcontent = styled.div`
     min-width: 125px;
     height: 2rem;
     margin: 1rem;
@@ -16,7 +16,7 @@ const Cardboxcontent=styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #865DFF;
+    background: linear-gradient(0deg, #0247B3 0%, #228FFC 10%);
     border-radius: 1rem;
     font-weight: bold;
     color: white;

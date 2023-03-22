@@ -1,6 +1,6 @@
 import './App.css';
 import styled from 'styled-components'
-import Inpurdrop from './components/Inpurdrop';
+import Inputdrop from './components/Inputdrop';
 import Outputdrop from './components/Outputdrop';
 import { useState, createContext } from "react";
 import Example from './components/Example';
@@ -16,10 +16,10 @@ function App() {
   return (
     <UserContext.Provider value={{ selectedImage, setSelectedImage, imageurl, setimageurl, outputurl, setoutputurl, loading, setloading, output, setoutput }}>
       <Appcontainer>
-        <h3>WILDLIFE DETECTION AND EVALUATION FROM
-          CAMERATRAP IMAGES USING DEEP LEARNING</h3>
+        <h1 className='title'>WILDLIFE DETECTION AND EVALUATION FROM
+          CAMERATRAP IMAGES USING DEEP LEARNING</h1>
         <Maincontainer>
-          <Inpurdrop />
+          <Inputdrop />
           <Outputdrop />
         </Maincontainer>
         <Example />

@@ -21,14 +21,14 @@ export default function Classes() {
   ];
   return (
     <>
-      <h1>Classes</h1>
-    <Classescontainer>
-      <div className="mainclasslist">
-        {classlist.map((data) => {
-          return <Cardbox data={data} />;
-        })}
-      </div>
-    </Classescontainer>
+      <h3>Classes</h3>
+      <Classescontainer>
+        <div className="mainclasslist">
+          {classlist.map((data) => {
+            return <Cardbox data={data} />;
+          })}
+        </div>
+      </Classescontainer>
     </>
   );
 }
@@ -36,6 +36,7 @@ export default function Classes() {
 const Classescontainer = styled.div`
   width: 100%;
   display: flex;
+  padding: 0.5rem;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;

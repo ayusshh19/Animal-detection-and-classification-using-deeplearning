@@ -55,30 +55,36 @@ export default function Example() {
 
     return canvas.toDataURL();
   };
-  const getoutput = async (img) => {
+  const getoutput=async (img)=>{
+    console.log(img)
     setoutput(false);
     const imgBlob = await fetch(img).then((res) => res.blob());
     setoutputurl(false)
     setSelectedImage(img);
     setimageurl(img);
     const formData = new FormData();
-    formData.append("img", imgBlob, img);
+    formData.append("img", imgBlob,img); 
     const postdata = async () => {
+      formData.forEach((data)=>{
+        console.log(data)
+      })
       await axios
         .post("https://predict-ebi2uybfrq-el.a.run.app/", formData)
         .then((data) => {
           const image = new Image();
           image.src = img;
           image.onload = () => {
-            if (data.data) {
+            if(data.data){
               console.log(data.data)
               const visual = visualizeDetection(image, data.data);
-              setoutputurl(visual);
+            setoutputurl(visual);
             }
-            else {
+            else{
               alert('something went wrong!!')
             }
           };
+        }).catch(()=>{
+          alert('something went wrong!!')
         });
     };
     postdata();

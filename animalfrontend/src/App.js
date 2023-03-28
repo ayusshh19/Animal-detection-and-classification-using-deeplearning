@@ -8,11 +8,10 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<Home />} />
-          <Route path="home" element={<Landing />} />
-        </Route>
-      </Routes>
+        <Route path="/" element={<Landing />} />
+          <Route index element={<Landing />} />
+          <Route path="home" element={<Home />} />
+        </Routes>
     </BrowserRouter>
   );
 }

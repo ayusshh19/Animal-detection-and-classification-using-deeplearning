@@ -36,6 +36,7 @@ const Home = () => {
 
 const Appcontainer = styled.div`
 width: 100%;
+overflow-x: hidden;
 `
 const Maincontainer = styled.div`
 height: 75vh;
@@ -46,7 +47,8 @@ align-items: center;
 justify-content: space-evenly;
 @media (max-width:990px) {
   flex-direction: column;
-  height: 90vh;
+  height: 100vh;
+  padding: 0rem;
 }
 `
 

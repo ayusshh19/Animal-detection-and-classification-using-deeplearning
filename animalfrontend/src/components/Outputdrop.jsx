@@ -35,7 +35,8 @@ const Outputcontainer = styled.div`
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; 
   border-radius: 2rem;
   @media (max-width:990px) {
-    width: 100%;
-    margin: 3rem 1rem;
-  }
+  width: 90%;
+  height: 20rem;
+  margin: 0rem 1rem;
+}
 `;

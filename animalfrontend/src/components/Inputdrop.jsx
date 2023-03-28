@@ -26,7 +26,8 @@ border-radius: 2rem;
 //               0 0 15px 15px #8a2be2;
 box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; 
 @media (max-width:990px) {
-  width: 100%;
-  margin: 1rem 1rem;
+  width: 90%;
+  height: 20rem;
+  margin: 0rem 1rem;
 }
 `;

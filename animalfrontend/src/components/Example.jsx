@@ -113,12 +113,13 @@ const Examplecontainer = styled.div`
   grid-template-columns: repeat(auto-fill, minmax(50px, 450px));  /* 3 columns */
   grid-template-rows: repeat(2,250px); /* 3 rows  */
   grid-gap:50px 30px; 
-  gird-wrap: wrap;
   // padding: 1rem;
   justify-content: space-evenly;
   align-items: center;
   @media (max-width:990px) {
    flex-wrap: wrap;
-   height: 350vh;
+   display: flex;
+   justify-content: center;
+   height: 100%;
   }
 `;

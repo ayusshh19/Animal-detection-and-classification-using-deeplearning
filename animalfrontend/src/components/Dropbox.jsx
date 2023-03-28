@@ -1,9 +1,9 @@
 import React, { useRef } from "react";
 import PropTypes from "prop-types";
-import { UserContext } from "../App";
+import { UserContext } from "../pages/Home";
 import "./Dropfile.css";
 import { useContext } from "react";
-import uploadImg from "../assets/upload.png";
+import uploadImg from "../assets/input.png";
 import Imagecontainer from "./Imagecontainer";
 import axios from "axios";
 const DropFileInput = (props) => {
@@ -88,7 +88,7 @@ const DropFileInput = (props) => {
           onDrop={onDrop}
         >
           <div className="drop-file-input__label">
-            <img src={uploadImg} alt="img" />
+            <img src={uploadImg} alt="img" width={'50%'} height={'60%'} />
             <p>Drag & Drop your files here Max 1 Image</p>
           </div>
           <input type="file" value="" onChange={onFileDrop} multiple />

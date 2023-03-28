@@ -3,19 +3,19 @@ import styled from 'styled-components'
 
 export default function Exampleimages(props) {
   return (
-    <Exampleset onClick={()=>props.setoutput(props.eximg)}>
-        <img src={props.eximg} alt="" srcset="" />
+    <Exampleset onClick={() => props.setoutput(props.eximg)}>
+      <img src={props.eximg} alt="" srcset="" />
     </Exampleset>
   )
 }
-const Exampleset=styled.div`
-    width: 200px;
-    height: 150px;
+const Exampleset = styled.div`
+    width: 350px;
+    height: 250px;
     display: flex;
     justify-content: center;
     align-items: center;
     @media (max-width:990px) {
-      width: 150px;
+      // width: 150px;
       margin: 0.3rem;
     }
 

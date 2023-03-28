@@ -1,0 +1,97 @@
+.bg-image {
+    position: relative;
+}
+.img {
+    width: 100%;
+    height: 100vh;
+}
+
+.cover {
+    position: absolute;
+    width: 50%;
+    right: 0;
+    top: 0;
+}
+
+.logo {
+    position: absolute;
+    left: 0;
+    top: 0px;
+    padding: 1em 2.5em;
+    width: 5%;
+}
+
+.flex {
+    display: flex-start;
+    justify-content: space-between;
+
+}
+
+.overlay {
+    position: absolute;
+    left: 0;
+    top: 12em;
+}
+
+.title {
+    font-size: 3em;
+    font-weight: 700;
+    padding: 1em;
+    color: white;
+    padding: 1em;
+    border: 0;
+    width: 40%;
+    text-shadow: 1px 1px black;
+}
+
+@media screen and (max-width: 768px) {
+    .title {
+        font-size: 2em;
+        font-weight: 700;
+        padding: 1em;
+        color: white;
+        padding: 1em;
+        border: 0;
+        width: 40%;
+        text-shadow: 1px 1px black;
+    }
+}
+
+.subtitle {
+    font-size: 2.5em;
+    font-weight: 600;
+    padding: 1em;
+    color: #224d4f;
+    /* text-shadow: 1px 1px black; */
+}
+.para {
+    font-size: 1.3em;
+    font-weight: 400;
+    margin: 0em 1em;
+    color: black;
+    padding: 1em;
+    border: 0;
+    width: 40%;
+    /* text-shadow: 1px 1px black; */
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 5em 0em;
+}
+
+.button {
+    padding: 1em;
+    margin: 2em 3em;
+    background-color: rgb(183, 0, 0);
+    border-radius: 0.5em;
+    text-decoration: none;
+    color: white;
+}
+
+.button:hover {
+    background-color: #224d4f;
+}

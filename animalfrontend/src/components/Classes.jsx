@@ -21,7 +21,7 @@ export default function Classes() {
   ];
   return (
     <>
-      <h3>Classes</h3>
+      <h3>CLASSES</h3>
       <Classescontainer>
         <div className="mainclasslist">
           {classlist.map((data) => {

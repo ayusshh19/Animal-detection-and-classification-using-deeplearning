@@ -7,7 +7,7 @@ import exampleimage3 from "../assets/image3.jpg";
 import exampleimage4 from "../assets/image4.jpg";
 import exampleimage5 from "../assets/image5.jpg";
 import exampleimage6 from "../assets/image6.jpg";
-import { UserContext } from "../App";
+import { UserContext } from "../pages/Home";
 import "./Dropfile.css";
 import { useContext } from "react";
 import axios from "axios";
@@ -55,7 +55,7 @@ export default function Example() {
 
     return canvas.toDataURL();
   };
-  const getoutput=async (img)=>{
+  const getoutput = async (img) => {
     console.log(img)
     setoutput(false);
     const imgBlob = await fetch(img).then((res) => res.blob());
@@ -63,9 +63,9 @@ export default function Example() {
     setSelectedImage(img);
     setimageurl(img);
     const formData = new FormData();
-    formData.append("img", imgBlob,img); 
+    formData.append("img", imgBlob, img);
     const postdata = async () => {
-      formData.forEach((data)=>{
+      formData.forEach((data) => {
         console.log(data)
       })
       await axios
@@ -74,16 +74,16 @@ export default function Example() {
           const image = new Image();
           image.src = img;
           image.onload = () => {
-            if(data.data){
+            if (data.data) {
               console.log(data.data)
               const visual = visualizeDetection(image, data.data);
-            setoutputurl(visual);
+              setoutputurl(visual);
             }
-            else{
+            else {
               alert('something went wrong!!')
             }
           };
-        }).catch(()=>{
+        }).catch(() => {
           alert('something went wrong!!')
         });
     };
@@ -91,28 +91,34 @@ export default function Example() {
   };
   return (
     <>
-      <h3>Example Images to Test</h3>
-      <Examplecontainer>
-        <Exampleimages setoutput={getoutput} eximg={exampleimage1} />
-        <Exampleimages setoutput={getoutput} eximg={exampleimage2} />
-        <Exampleimages setoutput={getoutput} eximg={exampleimage3} />
-        <Exampleimages setoutput={getoutput} eximg={exampleimage4} />
-        <Exampleimages setoutput={getoutput} eximg={exampleimage5} />
-        <Exampleimages setoutput={getoutput} eximg={exampleimage6} />
-      </Examplecontainer>
+      <div>
+        <h3>EXAMPLE IMAGES TO TEST</h3>
+        <Examplecontainer>
+          <Exampleimages setoutput={getoutput} eximg={exampleimage1} />
+          <Exampleimages setoutput={getoutput} eximg={exampleimage2} />
+          <Exampleimages setoutput={getoutput} eximg={exampleimage3} />
+          <Exampleimages setoutput={getoutput} eximg={exampleimage4} />
+          <Exampleimages setoutput={getoutput} eximg={exampleimage5} />
+          <Exampleimages setoutput={getoutput} eximg={exampleimage6} />
+        </Examplecontainer>
+      </div>
     </>
   );
 }
 
 const Examplecontainer = styled.div`
   width: 100%;
-  height: 20vh;
-  display: flex;
-  padding: 1rem;
+  height: 80vh;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(50px, 450px));  /* 3 columns */
+  grid-template-rows: repeat(2,250px); /* 3 rows  */
+  grid-gap:50px 30px; 
+  gird-wrap: wrap;
+  // padding: 1rem;
   justify-content: space-evenly;
   align-items: center;
   @media (max-width:990px) {
    flex-wrap: wrap;
-   height: 80vh;
+   height: 350vh;
   }
 `;

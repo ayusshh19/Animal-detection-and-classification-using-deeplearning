@@ -16,7 +16,8 @@ const Cardboxcontent = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(0deg, #0247B3 0%, #228FFC 10%);
+    // background: linear-gradient(0deg, #0247B3 0%, #228FFC 10%);
+    background: #224d4f;
     border-radius: 1rem;
     font-weight: bold;
     color: white;

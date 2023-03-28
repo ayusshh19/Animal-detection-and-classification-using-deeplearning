@@ -9,8 +9,8 @@ export default function Imagecontainer(props) {
   )
 }
 const Imagedrop = styled.div`
-width: 60%;
-height: 60%;
+width: 70%;
+height: 70%;
 display: flex;
 justify-content: center;
 align-items: center;

@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { UserContext } from "../App";
+import { UserContext } from "../pages/Home";
 import { useContext } from "react";
 import Imagecontainer from "./Imagecontainer";
 import Loading from "./Loading";
@@ -9,14 +9,14 @@ export default function Outputdrop() {
   const { outputurl, output } = useContext(UserContext);
   return (
     <Outputcontainer>
-      <h5>Output Image</h5>
       {output ? (
-        <Imagecontainer image={outputimg} width={'60%'} height={'80%'} />
+        <Imagecontainer image={outputimg} width={'50%'} height={'60%'} />
       ) : outputurl ? (
         <Imagecontainer image={outputurl} width={'100%'} height={'100%'} />
       ) : (
         <Loading />
       )}
+      <h5>OUTPUT IMAGE</h5>
     </Outputcontainer>
   );
 }
@@ -28,7 +28,7 @@ const Outputcontainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border: 2px solid #48abe0;
+  border: 2px solid #224D4F;
   // box-shadow: 0 0 10px 5px #48abe0,
   //             0 0 20px 7px #ebecca,
   //             0 0 15px 15px #8a2be2;

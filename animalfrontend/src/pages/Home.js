@@ -15,11 +15,11 @@ const Home = () => {
     const [outputurl, setoutputurl] = useState(false)
     const [loading, setloading] = useState(false)
     const [output, setoutput] = useState(true)
-    const [clickablecard,setclickablecard]=useState(true)
+    const [clickablecard, setclickablecard] = useState(true)
     return <>
-        <UserContext.Provider value={{ selectedImage, setSelectedImage, imageurl, setimageurl, outputurl, setoutputurl, loading, setloading, output, setoutput ,clickablecard,setclickablecard}}>
+        <UserContext.Provider value={{ selectedImage, setSelectedImage, imageurl, setimageurl, outputurl, setoutputurl, loading, setloading, output, setoutput, clickablecard, setclickablecard }}>
             <Appcontainer>
-                <Link to="/home">
+                <Link to="/">
                     <img className='logo' src={Logo} alt="logo" ></img>
                 </Link>
                 <h1 className="heading">WILDLIFE DETECTION AND EVALUATION FROM

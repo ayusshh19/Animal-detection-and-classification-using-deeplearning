@@ -1,88 +1,13 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import Exampleimages from "./Exampleimages";
-import exampleimage1 from "../assets/image1.jpg";
-import exampleimage2 from "../assets/image2.jpg";
-import exampleimage3 from "../assets/image3.jpg";
-import exampleimage4 from "../assets/image4.jpg";
-import exampleimage5 from "../assets/image5.jpg";
-import exampleimage6 from "../assets/image6.jpg";
-// import exampleimage7 from "../assets/image7.jpg";
-// import exampleimage8 from "../assets/image8.jpg";
-// import exampleimage9 from "../assets/image9.jpg";
-// import exampleimage10 from "../assets/image10.jpg";
-// import exampleimage11 from "../assets/image11.jpg";
-// import exampleimage12 from "../assets/image12.jpg";
-// import exampleimage13 from "../assets/image13.jpg";
-// import exampleimage14 from "../assets/image14.jpg";
-// import exampleimage15 from "../assets/image15.jpg";
-// import exampleimage16 from "../assets/image16.jpg";
-// import exampleimage17 from "../assets/image17.jpg";
-// import exampleimage18 from "../assets/image18.jpg";
-// import exampleimage19 from "../assets/image19.jpg";
-// import exampleimage20 from "../assets/image20.jpg";
-// import exampleimage21 from "../assets/image21.jpg";
-// import exampleimage22 from "../assets/image22.jpg";
-// import exampleimage23 from "../assets/image23.jpg";
-// import exampleimage24 from "../assets/image24.jpg";
-// import exampleimage25 from "../assets/image25.jpg";
-// import exampleimage26 from "../assets/image26.jpg";
-// import exampleimage27 from "../assets/image27.jpg";
-// import exampleimage28 from "../assets/image28.jpg";
-// import exampleimage29 from "../assets/image29.jpg";
-// import exampleimage30 from "../assets/image30.jpg";
 import { UserContext } from "../pages/Home";
+import Exampleimages from "./Exampleimages";
 import "./Dropfile.css";
 import { useContext } from "react";
 import axios from "axios";
-// Import the Cloudinary classes.
-// import { fill } from "@cloudinary/url-gen/actions/resize";
-// import { CloudinaryImage } from "@cloudinary/url-gen";
-// import { CloudinaryContext, Image } from "cloudinary-react";
-// import cloudinary from "cloudinary";
-import {fill} from "@cloudinary/url-gen/actions/resize";
-import {CloudinaryImage} from '@cloudinary/url-gen';
 export default function Example() {
-  const [imageUrl, setImageUrls] = useState('');
-
-  useEffect(() => {
-    const fetchImageUrls = async () => {
-      const response = await fetch('https://api.cloudinary.com/v1_1/dbeptj8fp/resources/image/fetch/f_auto/https://res.cloudinary.com/dbeptj8fp/image/upload/v1234567/Animaldetection/*.jpg');
-      const data = await response.json();
-      const urls = data.resources.map(resource => resource.url);
-      setImageUrls(urls);
-      console.log(urls)
-    };
-    fetchImageUrls();
-  }, []);
-     // const cl = new cloudinary.Cloudinary({
-    //   cloud_name: "dbeptj8fp",
-    //   api_key: "671723357986269",
-    //   api_secret: "oYz8u2Y2AqJ9SletYLmDgO6naa8",
-    // });
-  useEffect(() => {
-    // Set up the Cloudinary configuration
- 
-    // console.log(cl);
-    // const getdata = async () => {
-    //   cl.search.expression("folder:Animaldetection").execute().then((result) => {
-    //     const imageUrls = result.resources.map((resource) => resource.url);
-    //     setImageUrls(imageUrls);
-    //     console.log(imageUrls)
-    //   }).catch((error) => {
-    //     console.log(error);
-    //   });
-    // };
-    // getdata();
-    // console.log(imageUrls);
-    // setImageUrls(imageUrls);
-  }, []);
-  // const myImage = new CloudinaryImage('Animaldetection', {cloudName: 'dbeptj8fp'}).resize(fill().width(100).height(150));
-  // console.log(myImage)
   const {
-    // selectedImage,
     setSelectedImage,
-    // imageurl,
     output,
     outputurl,
     setimageurl,
@@ -90,7 +15,87 @@ export default function Example() {
     setoutput,
     setclickablecard,
   } = useContext(UserContext);
+  const [urls,seturls]=useState([])
+  const allimgurls = [
+    "https://res.cloudinary.com/dbeptj8fp/image/upload/v1680446107/Animaldetection/jr0glieyrdu9kvnz47zn.jpg",
+    "https://res.cloudinary.com/dbeptj8fp/image/upload/v1680446107/Animaldetection/ws0su9fbdy5w4sdwzhji.jpg",
+    "https://res.cloudinary.com/dbeptj8fp/image/upload/v1680446107/Animaldetection/xiazm6o8tlnw5nzovdjw.jpg",
+    "https://res.cloudinary.com/dbeptj8fp/image/upload/v1680446107/Animaldetection/dgw6xp63ylefesrfy06s.jpg",
+    "https://res.cloudinary.com/dbeptj8fp/image/upload/v1680446106/Animaldetection/omnbc9jz21tdkfdv3ypx.jpg",
+    "https://res.cloudinary.com/dbeptj8fp/image/upload/v1680446106/Animaldetection/vgd9zyssuyqic9cmejot.jpg",
+    "https://res.cloudinary.com/dbeptj8fp/image/upload/v1680446106/Animaldetection/cekwhesgkkkvxvsabub3.jpg",
+    "https://res.cloudinary.com/dbeptj8fp/image/upload/v1680446106/Animaldetection/tn1fd6sjqvbsj1pargzp.jpg",
+    "https://res.cloudinary.com/dbeptj8fp/image/upload/v1680446106/Animaldetection/w7fbald8kfm31eu4mv09.jpg",
+    "https://res.cloudinary.com/dbeptj8fp/image/upload/v1680446106/Animaldetection/b1ilp6y2wikchprcjftk.jpg",
+    "https://res.cloudinary.com/dbeptj8fp/image/upload/v1680446105/Animaldetection/xdg4lml9sqjkkxddle7g.jpg",
+    "https://res.cloudinary.com/dbeptj8fp/image/upload/v1680446105/Animaldetection/b3ppuyfownzjzdrdgde2.jpg",
+    "https://res.cloudinary.com/dbeptj8fp/image/upload/v1680446105/Animaldetection/r6xaaqtxydwxzkeyskul.jpg",
+    "https://res.cloudinary.com/dbeptj8fp/image/upload/v1680446105/Animaldetection/d18w25qdsxkyoomrffxw.jpg",
+    "https://res.cloudinary.com/dbeptj8fp/image/upload/v1680446105/Animaldetection/vb2qkk7allg74gdkhs1o.jpg",
+    "https://res.cloudinary.com/dbeptj8fp/image/upload/v1680446104/Animaldetection/a2eukkb1q0pr269ut4iv.jpg",
+    "https://res.cloudinary.com/dbeptj8fp/image/upload/v1680446104/Animaldetection/fa4nswwqmbyn2u7hsefm.jpg",
+    "https://res.cloudinary.com/dbeptj8fp/image/upload/v1680446104/Animaldetection/uyl7csyuvha3vlwosros.jpg",
+    "https://res.cloudinary.com/dbeptj8fp/image/upload/v1680446104/Animaldetection/x7uhwvoxaxhbzjxtshcp.jpg",
+    "https://res.cloudinary.com/dbeptj8fp/image/upload/v1680446104/Animaldetection/quyiy0csmatl0ee7we0u.jpg",
+    "https://res.cloudinary.com/dbeptj8fp/image/upload/v1680446104/Animaldetection/z3gi5sn72uvexgv9dz05.jpg",
+    "https://res.cloudinary.com/dbeptj8fp/image/upload/v1680446104/Animaldetection/hdv5d7xgwwrjradxa6ca.jpg",
+    "https://res.cloudinary.com/dbeptj8fp/image/upload/v1680446104/Animaldetection/jgdeaqhvasjt9butlgki.jpg",
+    "https://res.cloudinary.com/dbeptj8fp/image/upload/v1680446104/Animaldetection/oemuvqbyr9w4fgaye61y.jpg",
+    "https://res.cloudinary.com/dbeptj8fp/image/upload/v1680446103/Animaldetection/ivrgh0kzwmg4ae6vgq0x.jpg",
+    "https://res.cloudinary.com/dbeptj8fp/image/upload/v1680446103/Animaldetection/nrhvs5ih1kfljjpjkwhd.jpg",
+    "https://res.cloudinary.com/dbeptj8fp/image/upload/v1680446103/Animaldetection/rtckvhbtgyc9z80ku2pr.jpg",
+    "https://res.cloudinary.com/dbeptj8fp/image/upload/v1680446103/Animaldetection/t5ktdduypz8ad7ytnaqq.jpg",
+    "https://res.cloudinary.com/dbeptj8fp/image/upload/v1680446103/Animaldetection/q3sjdmckbhubvyy7nzsh.jpg",
+    "https://res.cloudinary.com/dbeptj8fp/image/upload/v1680446103/Animaldetection/qbqzoseoh340j4kdguqn.jpg",
+    "https://res.cloudinary.com/dbeptj8fp/image/upload/v1680446103/Animaldetection/hzcrrb6b0bzfnrbjqisx.jpg",
+    "https://res.cloudinary.com/dbeptj8fp/image/upload/v1680446103/Animaldetection/eidkcvmwobzn373dzhih.jpg",
+    "https://res.cloudinary.com/dbeptj8fp/image/upload/v1680446103/Animaldetection/qvolgdhzha4bywduxil1.jpg",
+    "https://res.cloudinary.com/dbeptj8fp/image/upload/v1680446102/Animaldetection/ibzgkbcqgyx1j184giix.jpg",
+    "https://res.cloudinary.com/dbeptj8fp/image/upload/v1680446102/Animaldetection/j3y4tnlud8i53gjmyysu.jpg",
+    "https://res.cloudinary.com/dbeptj8fp/image/upload/v1680446102/Animaldetection/beoxqh0xxfwjrrv3aavz.jpg",
+    "https://res.cloudinary.com/dbeptj8fp/image/upload/v1680446102/Animaldetection/kiitvifs8mqacb3xamv0.jpg",
+    "https://res.cloudinary.com/dbeptj8fp/image/upload/v1680446102/Animaldetection/njegvujjdskag2ficre2.jpg",
+    "https://res.cloudinary.com/dbeptj8fp/image/upload/v1680446102/Animaldetection/uwmdyrljm0vgxj6hvisq.jpg",
+    "https://res.cloudinary.com/dbeptj8fp/image/upload/v1680446102/Animaldetection/jl9hfbpdoymn8oj9zqai.jpg",
+    "https://res.cloudinary.com/dbeptj8fp/image/upload/v1680446101/Animaldetection/n6pzfhcap39e18almczm.jpg",
+    "https://res.cloudinary.com/dbeptj8fp/image/upload/v1680446101/Animaldetection/y8tqcy3dvbnkkj6ym4rp.jpg",
+    "https://res.cloudinary.com/dbeptj8fp/image/upload/v1680446101/Animaldetection/hhjsy3okwhojlrb07inh.jpg",
+    "https://res.cloudinary.com/dbeptj8fp/image/upload/v1680446101/Animaldetection/l87jzx5to4qga7y3ndtk.jpg",
+    "https://res.cloudinary.com/dbeptj8fp/image/upload/v1680446101/Animaldetection/zvnp6dsqlfzecbuy4hes.jpg",
+    "https://res.cloudinary.com/dbeptj8fp/image/upload/v1680446100/Animaldetection/r8ljzo3n0pbfpzwia1bj.jpg",
+    "https://res.cloudinary.com/dbeptj8fp/image/upload/v1680446100/Animaldetection/dr5nza7nqthpnxklej5a.jpg",
+    "https://res.cloudinary.com/dbeptj8fp/image/upload/v1680446100/Animaldetection/iknv2llu9dlgqv70vcut.jpg",
+    "https://res.cloudinary.com/dbeptj8fp/image/upload/v1680446100/Animaldetection/gy6m8whvdnuuwapcp38u.jpg",
+    "https://res.cloudinary.com/dbeptj8fp/image/upload/v1680446100/Animaldetection/pwcpi2sfppephoyscibn.jpg",
+    "https://res.cloudinary.com/dbeptj8fp/image/upload/v1680446099/Animaldetection/anrilxdpqpklknlcmu9n.jpg",
+    "https://res.cloudinary.com/dbeptj8fp/image/upload/v1680446099/Animaldetection/iarw4qopmiswapi8bwgm.jpg",
+    "https://res.cloudinary.com/dbeptj8fp/image/upload/v1680446099/Animaldetection/f8hgqkwyhhxeztiejedt.jpg",
+    "https://res.cloudinary.com/dbeptj8fp/image/upload/v1680446099/Animaldetection/mc9mv1axuo0e6aakfrbb.jpg",
+    "https://res.cloudinary.com/dbeptj8fp/image/upload/v1680446099/Animaldetection/whwvuoti4rajqvyr3phc.jpg",
+    "https://res.cloudinary.com/dbeptj8fp/image/upload/v1680446099/Animaldetection/zyuigab9nzoq8xsqigig.jpg",
+    "https://res.cloudinary.com/dbeptj8fp/image/upload/v1680446098/Animaldetection/nt0tklqqejwi1xzemmp8.jpg",
+    "https://res.cloudinary.com/dbeptj8fp/image/upload/v1680446098/Animaldetection/yuw77mux0tqgwjur1b1x.jpg",
+    "https://res.cloudinary.com/dbeptj8fp/image/upload/v1680446098/Animaldetection/tc9cz214h075czpnbkem.jpg",
+    "https://res.cloudinary.com/dbeptj8fp/image/upload/v1680446098/Animaldetection/ws8ly04xo81rmww1xbxi.jpg",
+    "https://res.cloudinary.com/dbeptj8fp/image/upload/v1680446098/Animaldetection/xetrh5jyojb4ntedj9nz.jpg",
+    "https://res.cloudinary.com/dbeptj8fp/image/upload/v1680446098/Animaldetection/dz0necaax98bsyki3kl6.jpg",
+    "https://res.cloudinary.com/dbeptj8fp/image/upload/v1680446097/Animaldetection/daqrpcjacewijefbdm1k.jpg",
+    "https://res.cloudinary.com/dbeptj8fp/image/upload/v1680446097/Animaldetection/gzxoyt9eezhzvpnlznwi.jpg",
+    "https://res.cloudinary.com/dbeptj8fp/image/upload/v1680446098/Animaldetection/zn3gatftcrj1mie3knyv.jpg",
+    "https://res.cloudinary.com/dbeptj8fp/image/upload/v1680446097/Animaldetection/kto0mmsjshrzygotienx.jpg",
+    "https://res.cloudinary.com/dbeptj8fp/image/upload/v1680446097/Animaldetection/lcgt1xutcxmw85pwgfru.jpg",
+    "https://res.cloudinary.com/dbeptj8fp/image/upload/v1680446097/Animaldetection/rflwucmpkfzim2jqsgs7.jpg",
+    "https://res.cloudinary.com/dbeptj8fp/image/upload/v1680446097/Animaldetection/qmntfs2vuixa8ytakgmk.jpg",
+  ];
   // const allimg=[]
+  useEffect(()=>{
+    const randomIndexes = Array.from({ length: 6 }, () =>
+      Math.floor(Math.random() * allimgurls.length)
+    );
+    const randomArray = randomIndexes.map((index) => allimgurls[index]);
+    seturls(randomArray)
+
+  },[])
   const visualizeDetection = (image, outputs) => {
     const boxes = outputs.bbox;
     const labels = outputs.class;
@@ -121,7 +126,7 @@ export default function Example() {
       ctx.fillStyle = "white";
       ctx.fillText(label, x1, y1 - 8);
     }
-
+    console.log(canvas)
     return canvas.toDataURL();
   };
   const getoutput = async (img) => {
@@ -141,6 +146,7 @@ export default function Example() {
           .post("https://predict-ebi2uybfrq-el.a.run.app/", formData)
           .then((data) => {
             const image = new Image();
+            image.crossOrigin = 'anonymous';
             image.src = img;
             image.onload = () => {
               if (data.data) {
@@ -170,12 +176,12 @@ export default function Example() {
           <Image publicId="your_image_public_id" />
         </CloudinaryContext> */}
         <Examplecontainer>
-          <Exampleimages setoutput={getoutput} eximg={exampleimage1} />
-          <Exampleimages setoutput={getoutput} eximg={exampleimage2} />
-          <Exampleimages setoutput={getoutput} eximg={exampleimage3} />
-          <Exampleimages setoutput={getoutput} eximg={exampleimage4} />
-          <Exampleimages setoutput={getoutput} eximg={exampleimage5} />
-          <Exampleimages setoutput={getoutput} eximg={exampleimage6} />
+          {
+            urls.map((data)=>{
+
+              return <Exampleimages setoutput={getoutput} eximg={data} />
+            })
+          }
         </Examplecontainer>
       </div>
     </>

@@ -15,7 +15,7 @@ const Landing = () => {
                 <Link to="/home" className='button'>Explore more →</Link>
             </div>
             <h1 className='subtitle'>Objective</h1>
-            <p className='para'>Wildlife monitoring and analysis is an active research field since many decades. Tropical forests pose a particularly challenging environment for monitoring wildlife due to the dense vegetation, and diverse and cryptic species with relatively low abundances. The most commonly used monitoring methods in tropical forests are observations made by humans, camera traps, or passive acoustic sensors. Observations of species which are elusive, shy, and rare can only be done using camera traps, or passive acoustic sensors. Camera trapping is generally most effective for medium to large terrestrial animals, but can also be used to survey smaller, cryptic, and rare animals that typically go undetected by humans. Every observation comes with a photograph that can be used for verification and validation.</p>
+            <p className='para'>Wildlife monitoring and analysis is a well-established research field with a focus on tropical forests. These environments pose challenges due to dense vegetation and elusive species. Common monitoring methods include human observations, camera traps, and passive acoustic sensors. Camera traps and acoustic sensors are effective for observing rare and cryptic species, and provide photographs for verification.</p>
 
             <div className='center'>
                 <h1 className='subtitle'>About Project</h1>

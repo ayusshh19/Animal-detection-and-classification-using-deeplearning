@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import { useNavigate } from 'react-router-dom';
 import { UserContext } from "../pages/Home";
 import "./Dropfile.css";
 import { useContext } from "react";
@@ -45,5 +44,10 @@ padding: 1em;
 @media (max-width:990px) {
   width: 80%;
   height: 80%;
+  .iconclose{
+    top: 0rem;
+  right: 0rem;
+  transform: scale(1.2);
+  }
 }
 `

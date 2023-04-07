@@ -7,7 +7,7 @@ import uploadImg from "../assets/input.png";
 import Imagecontainer from "./Imagecontainer";
 import axios from "axios";
 const DropFileInput = (props) => {
-  const { selectedImage, setSelectedImage, imageurl, setimageurl, setoutputurl, setoutput } =
+  const { selectedImage, setSelectedImage, imageurl, setimageurl, setoutputurl, setoutput,clickablecard,setclickablecard } =
     useContext(UserContext);
   const wrapperRef = useRef(null);
 
@@ -50,6 +50,7 @@ const DropFileInput = (props) => {
   const onFileDrop = (e) => {
     if (e.target.files && e.target.files.length > 0) {
       setoutput(false)
+      setclickablecard(false)
       setSelectedImage(e.target.files[0]);
       setimageurl(URL.createObjectURL(e.target.files[0]));
       const formData = new FormData();
@@ -68,6 +69,7 @@ const DropFileInput = (props) => {
           image.onload = () => {
             const visual = visualizeDetection(image, data.data);
             setoutputurl(visual)
+            setclickablecard(true)
           };
         });
       };

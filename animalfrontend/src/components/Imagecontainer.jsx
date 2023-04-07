@@ -1,9 +1,22 @@
 import React from 'react'
 import styled from 'styled-components'
+import { useNavigate } from 'react-router-dom';
+import { UserContext } from "../pages/Home";
+import "./Dropfile.css";
+import { useContext } from "react";
 
 export default function Imagecontainer(props) {
+  const { setSelectedImage,setoutputurl,setoutput,clickablecard } =
+  useContext(UserContext);
+  const handleinputnavigate=()=>{
+     if(clickablecard){
+      setSelectedImage(false)
+      setoutputurl(false)
+      setoutput(true)
+     }
+  }
   return (
-    <Imagedrop>
+    <Imagedrop onClick={handleinputnavigate}>
       <img src={props.image} alt="img" srcset="" width={props.width} height={props.height} />
     </Imagedrop>
   )

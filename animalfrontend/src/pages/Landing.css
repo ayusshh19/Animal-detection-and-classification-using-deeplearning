@@ -41,7 +41,6 @@ body{
     font-weight: 700;
     padding: 1em;
     color: white;
-    padding: 1em;
     border: 0;
     width: 40%;
     text-shadow: 1px 1px black;
@@ -51,6 +50,9 @@ body{
 }
 
 @media screen and (max-width: 768px) {
+    .img{
+        overflow-x: hidden;
+    }
     .title {
         font-size: 2em;
         font-weight: 700;
